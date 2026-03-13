@@ -1,10 +1,10 @@
 ## ADDED Requirements
 
-### Requirement: TipTap editor renders at /editor route
-The system SHALL render a TipTap editor instance at the `/editor` route using `@tiptap/react` with the `useEditor` hook and StarterKit extension. The editor component SHALL live at `src/features/editor/components/Editor.tsx` and be imported by the route at `src/app/editor/page.tsx`.
+### Requirement: TipTap editor renders at /notes route
+The system SHALL render a TipTap editor instance at the `/notes` route using `@tiptap/react` with the `useEditor` hook and StarterKit extension. The editor component SHALL live at `features/notes/components/Notes.tsx` and be imported by the route at `app/notes/page.tsx`.
 
 #### Scenario: Editor mounts on page load
-- **WHEN** user navigates to `/editor`
+- **WHEN** user navigates to `/notes`
 - **THEN** a TipTap editor is rendered with an editable content area
 
 ### Requirement: Block-based editing with standard block types
