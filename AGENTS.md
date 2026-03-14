@@ -1,5 +1,9 @@
 # Agents
 
+## Rules
+
+- Do not add "Co-Authored-By" trailers or any attribution to Claude Code in commit messages.
+
 ## Commit Convention
 
 This project uses [Conventional Commits](https://www.conventionalcommits.org/).
