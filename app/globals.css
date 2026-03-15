@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --tiptap-blockquote-border: #d1d5db;
+  --tiptap-blockquote-text: #6b7280;
+  --tiptap-code-bg: #f3f4f6;
+  --tiptap-hr-border: #e5e7eb;
 }
 
 @theme inline {
@@ -16,6 +20,10 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --tiptap-blockquote-border: #4b5563;
+    --tiptap-blockquote-text: #9ca3af;
+    --tiptap-code-bg: #27272a;
+    --tiptap-hr-border: #3f3f46;
   }
 }
 
@@ -56,9 +64,9 @@ body {
   }
 
   blockquote {
-    border-left: 3px solid #d1d5db;
+    border-left: 3px solid var(--tiptap-blockquote-border);
     padding-left: 1em;
-    color: #6b7280;
+    color: var(--tiptap-blockquote-text);
   }
 
   pre {
@@ -76,14 +84,14 @@ body {
   }
 
   code {
-    background: #f3f4f6;
+    background: var(--tiptap-code-bg);
     border-radius: 0.25rem;
     padding: 0.15em 0.3em;
     font-size: 0.875em;
   }
 
   hr {
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--tiptap-hr-border);
     margin: 1.5em 0;
   }
 }
