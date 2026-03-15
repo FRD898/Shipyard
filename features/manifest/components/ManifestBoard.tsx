@@ -130,7 +130,7 @@ export function ManifestBoard() {
       />
 
       {/* Board */}
-      <div className="flex flex-1 gap-3 overflow-x-auto p-4">
+      <div className="grid flex-1 grid-cols-12 gap-3 overflow-y-auto p-4">
         {STATUSES.map((status) => (
           <Column
             key={status}

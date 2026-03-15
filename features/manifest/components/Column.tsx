@@ -44,7 +44,7 @@ export function Column({
   return (
     <div
       ref={ref}
-      className={`flex min-w-[260px] max-w-[260px] flex-shrink-0 flex-col rounded-lg border transition-colors ${over ? "border-zinc-500 bg-zinc-800/40" : "border-zinc-800/50 bg-zinc-900/30"}`}
+      className={`col-span-2 flex flex-col rounded-lg border transition-colors ${over ? "border-zinc-500 bg-zinc-800/40" : "border-zinc-800/50 bg-zinc-900/30"}`}
     >
       {/* Header */}
       <div className="flex items-center gap-2 border-b border-zinc-800/50 px-3 py-2.5">
@@ -58,6 +58,12 @@ export function Column({
         <span className="ml-auto font-mono text-[11px] text-zinc-600">
           {tasks.length}
         </span>
+        <button
+          onClick={onAddClick}
+          className="cursor-pointer rounded p-0.5 font-mono text-sm leading-none text-zinc-600 transition-colors hover:bg-zinc-700 hover:text-zinc-300"
+        >
+          +
+        </button>
       </div>
 
       {/* Cards */}
@@ -70,14 +76,6 @@ export function Column({
           />
         ))}
       </div>
-
-      {/* Add button */}
-      <button
-        onClick={onAddClick}
-        className="m-2 rounded-md border border-dashed border-zinc-700 py-1.5 font-mono text-xs text-zinc-500 transition-colors hover:border-zinc-500 hover:text-zinc-300"
-      >
-        + Add
-      </button>
     </div>
   );
 }
