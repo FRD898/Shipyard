@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 import type { Task, TaskType, Priority, Status } from "../types";
 
 type TaskAction =
