@@ -27,7 +27,7 @@ export function Notes() {
     onUpdate: handleUpdate,
     editorProps: {
       attributes: {
-        class: "outline-none min-h-[calc(100vh-4rem)] p-4",
+        class: "outline-none min-h-[calc(100vh-8rem)] p-6 text-zinc-100",
       },
     },
   });
