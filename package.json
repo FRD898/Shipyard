@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@atlaskit/pragmatic-drag-and-drop": "^1.7.9",
     "@excalidraw/excalidraw": "^0.18.0",
     "@tiptap/extension-link": "^3.20.1",
     "@tiptap/pm": "^3.20.1",
