@@ -11,7 +11,7 @@ const Excalidraw = dynamic(
 export function Kraken() {
   return (
     <div className="kraken-canvas">
-      <Excalidraw />
+      <Excalidraw theme="dark" />
     </div>
   );
 }
