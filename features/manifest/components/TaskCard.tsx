@@ -5,6 +5,7 @@ import { draggable } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
 import type { Task } from "../types";
 import { TYPE_COLORS, PRIORITY_COLORS } from "../utils/theme";
 import { getDueDateLabel } from "../utils/dates";
+import { Badge } from "@/components/ui/badge";
 
 interface TaskCardProps {
   task: Task;
@@ -37,11 +38,12 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
       className={`group cursor-grab rounded-md border border-zinc-800 bg-zinc-900 p-3 transition-all hover:border-zinc-600 hover:bg-zinc-800/80 active:cursor-grabbing ${dragging ? "opacity-40 scale-95" : ""}`}
     >
       <div className="mb-2 flex items-center gap-2">
-        <span
-          className={`rounded px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider ${typeStyle.bg} ${typeStyle.text}`}
+        <Badge
+          variant="secondary"
+          className={`rounded px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider ${typeStyle.bg} ${typeStyle.text} border-0`}
         >
           {task.type}
-        </span>
+        </Badge>
         <span className={`ml-auto h-2 w-2 rounded-full ${priorityColor}`} />
       </div>
 

@@ -3,6 +3,8 @@
 import type { TaskType, Priority } from "../types";
 import { TASK_TYPES, PRIORITIES } from "../types";
 import { TYPE_COLORS, PRIORITY_COLORS } from "../utils/theme";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 interface FilterBarProps {
   search: string;
@@ -37,11 +39,11 @@ export function FilterBar({
           <circle cx="11" cy="11" r="8" />
           <path d="m21 21-4.35-4.35" />
         </svg>
-        <input
+        <Input
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search..."
-          className="w-44 rounded-md border border-zinc-800 bg-zinc-900 py-1.5 pl-8 pr-3 font-mono text-xs text-zinc-300 outline-none placeholder:text-zinc-600 focus:border-zinc-600"
+          className="h-7 w-44 border-zinc-800 bg-zinc-900 py-1.5 pl-8 pr-3 font-mono text-xs text-zinc-300 placeholder:text-zinc-600 focus-visible:border-zinc-600 focus-visible:ring-0"
         />
       </div>
 
@@ -53,17 +55,19 @@ export function FilterBar({
           const active = activeTypes.has(t);
           const style = TYPE_COLORS[t];
           return (
-            <button
+            <Button
               key={t}
+              variant="ghost"
+              size="xs"
               onClick={() => onToggleType(t)}
-              className={`cursor-pointer rounded px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider transition-all ${
+              className={`px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider ${
                 active
                   ? `${style.bg} ${style.text}`
                   : "text-zinc-600 hover:text-zinc-400"
               }`}
             >
               {t}
-            </button>
+            </Button>
           );
         })}
       </div>
@@ -75,10 +79,12 @@ export function FilterBar({
         {PRIORITIES.map((p) => {
           const active = activePriorities.has(p);
           return (
-            <button
+            <Button
               key={p}
+              variant="ghost"
+              size="xs"
               onClick={() => onTogglePriority(p)}
-              className={`cursor-pointer flex items-center gap-1 rounded px-1.5 py-0.5 font-mono text-[10px] transition-all ${
+              className={`flex items-center gap-1 px-1.5 py-0.5 font-mono text-[10px] ${
                 active
                   ? "bg-zinc-700 text-zinc-200"
                   : "text-zinc-600 hover:text-zinc-400"
@@ -88,7 +94,7 @@ export function FilterBar({
                 className={`h-1.5 w-1.5 rounded-full ${PRIORITY_COLORS[p]}`}
               />
               {p}
-            </button>
+            </Button>
           );
         })}
       </div>

@@ -144,18 +144,17 @@ export function ManifestBoard() {
       </div>
 
       {/* Modal */}
-      {modalState && (
-        <TaskModal
-          mode={modalState.mode}
-          task={modalState.mode === "edit" ? modalState.task : null}
-          defaultStatus={
-            modalState.mode === "create" ? modalState.status : undefined
-          }
-          onSave={handleSave}
-          onDelete={modalState.mode === "edit" ? handleDelete : undefined}
-          onClose={() => setModalState(null)}
-        />
-      )}
+      <TaskModal
+        mode={modalState?.mode ?? "create"}
+        task={modalState?.mode === "edit" ? modalState.task : null}
+        defaultStatus={
+          modalState?.mode === "create" ? modalState.status : undefined
+        }
+        open={modalState !== null}
+        onSave={handleSave}
+        onDelete={modalState?.mode === "edit" ? handleDelete : undefined}
+        onClose={() => setModalState(null)}
+      />
     </div>
   );
 }
