@@ -5,6 +5,8 @@ import { dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/element
 import type { Task, Status } from "../types";
 import { COLUMN_COLORS } from "../utils/theme";
 import { TaskCard } from "./TaskCard";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 interface ColumnProps {
   status: Status;
@@ -55,15 +57,20 @@ export function Column({
         <h3 className="font-mono text-xs font-semibold uppercase tracking-widest text-zinc-400">
           {status}
         </h3>
-        <span className="ml-auto font-mono text-[11px] text-zinc-600">
+        <Badge
+          variant="secondary"
+          className="ml-auto h-4 min-w-4 justify-center rounded-full border-0 bg-transparent px-0 font-mono text-[11px] text-zinc-600"
+        >
           {tasks.length}
-        </span>
-        <button
+        </Badge>
+        <Button
+          variant="ghost"
+          size="icon-xs"
           onClick={onAddClick}
-          className="cursor-pointer rounded p-0.5 font-mono text-sm leading-none text-zinc-600 transition-colors hover:bg-zinc-700 hover:text-zinc-300"
+          className="font-mono text-sm leading-none text-zinc-600 hover:bg-zinc-700 hover:text-zinc-300"
         >
           +
-        </button>
+        </Button>
       </div>
 
       {/* Cards */}
