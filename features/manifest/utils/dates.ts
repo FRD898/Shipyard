@@ -1,12 +1,16 @@
+/** Parse a YYYY-MM-DD string as local midnight (not UTC). */
+export function parseLocalDate(dateStr: string): Date {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
 export function getDueDateLabel(dueDate: string): {
   text: string;
   overdue: boolean;
 } {
   const now = new Date();
-  const due = new Date(dueDate);
-  // Compare dates only (strip time)
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const dueStart = new Date(due.getFullYear(), due.getMonth(), due.getDate());
+  const dueStart = parseLocalDate(dueDate);
   const diffMs = dueStart.getTime() - todayStart.getTime();
   const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
 
