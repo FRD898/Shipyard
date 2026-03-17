@@ -1,19 +1,21 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  const [value, setValue] = useState<T>(() => {
+  const [value, setValue] = useState<T>(initialValue);
+
+  // Hydrate from localStorage after mount (avoids SSR mismatch)
+  useEffect(() => {
     try {
       const stored = localStorage.getItem(key);
-      if (stored) return JSON.parse(stored) as T;
+      if (stored) setValue(JSON.parse(stored) as T);
     } catch {
       // localStorage unavailable or corrupt
     }
-    return initialValue;
-  });
+  }, [key]);
 
-  // Persist on every update call, not via effect
+  // Persist on every update call
   const update = useCallback(
     (updater: T | ((prev: T) => T)) => {
       setValue((prev) => {
