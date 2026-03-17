@@ -53,7 +53,7 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
 
       {dueInfo && (
         <p
-          className={`mt-2 font-mono text-[11px] ${dueInfo.overdue ? "text-red-400" : "text-zinc-500"}`}
+          className={`mt-2 font-mono text-[11px] ${dueInfo.overdue ? "text-red-400" : "text-amber-400"}`}
         >
           {dueInfo.text}
         </p>
