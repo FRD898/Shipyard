@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo } from "react";
 import type { Task, TaskType, Priority, Status } from "../types";
-import { STATUSES } from "../types";
+import { STATUSES, PRIORITIES } from "../types";
 import { useTaskReducer } from "../hooks/useTaskReducer";
 import { Column } from "./Column";
 import { TaskModal } from "./TaskModal";
@@ -135,7 +135,9 @@ export function ManifestBoard() {
           <Column
             key={status}
             status={status}
-            tasks={filteredTasks.filter((t) => t.status === status)}
+            tasks={filteredTasks
+              .filter((t) => t.status === status)
+              .sort((a, b) => PRIORITIES.indexOf(b.priority) - PRIORITIES.indexOf(a.priority))}
             onAddClick={() => setModalState({ mode: "create", status })}
             onTaskClick={(task) => setModalState({ mode: "edit", task })}
             onDrop={handleDrop}
