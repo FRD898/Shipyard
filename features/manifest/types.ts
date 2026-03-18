@@ -1,4 +1,4 @@
-export type TaskType = "PRD" | "TDD" | "Impl" | "Review" | "Bug" | "Docs";
+export type TaskType = "PRD" | "TDD" | "Impl" | "Review" | "Bug" | "Docs" | "REL";
 
 export type Priority = "Low" | "Medium" | "High";
 
@@ -26,6 +26,7 @@ export const TASK_TYPES: TaskType[] = [
   "Review",
   "Bug",
   "Docs",
+  "REL",
 ];
 
 export const PRIORITIES: Priority[] = ["Low", "Medium", "High"];

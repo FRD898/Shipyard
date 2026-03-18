@@ -16,6 +16,7 @@ export const TYPE_COLORS: Record<TaskType, { bg: string; text: string }> = {
   Review: { bg: "bg-amber-500/20", text: "text-amber-400" },
   Bug: { bg: "bg-red-500/20", text: "text-red-400" },
   Docs: { bg: "bg-emerald-500/20", text: "text-emerald-400" },
+  REL: { bg: "bg-pink-500/20", text: "text-pink-400" },
 };
 
 export const PRIORITY_COLORS: Record<Priority, string> = {
